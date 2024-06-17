@@ -14,7 +14,7 @@ def create_movie_session(
         movie=movie_id)
 
 
-def get_movies_session(
+def get_movies_sessions(
         session_date: str = None
 ) -> MovieSession | QuerySet[MovieSession]:
     if session_date:
