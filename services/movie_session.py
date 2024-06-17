@@ -11,8 +11,7 @@ def create_movie_session(
     return MovieSession.objects.create(
         show_time=movie_show_time,
         cinema_hall=cinema_hall_id,
-        movie=movie_id
-    )
+        movie=movie_id)
 
 
 def get_movie_session(
