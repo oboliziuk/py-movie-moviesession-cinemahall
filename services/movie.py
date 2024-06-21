@@ -3,19 +3,16 @@ from db.models import Movie
 
 
 def get_movies(
-        genres_ids: list[int],
-        actors_ids: list[int]
+        genres_ids: list[int] = None,
+        actors_ids: list[int] = None
 ) -> QuerySet[Movie]:
     queryset = Movie.objects.all()
 
-    if genres_ids and actors_ids:
-        queryset = queryset.filter(genre__in=genres_ids, actor__in=actors_ids)
-
     if genres_ids:
-        queryset = queryset.filter(genre__in=genres_ids)
+        queryset = queryset.filter(genres__id__in=genres_ids)
 
     if actors_ids:
-        queryset = queryset.filter(actor__in=actors_ids)
+        queryset = queryset.filter(actors__id__in=actors_ids)
 
     return queryset
 
